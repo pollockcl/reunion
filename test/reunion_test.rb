@@ -46,4 +46,13 @@ class ReunionTest < Minitest::Test
     assert_equal 0, @reunion.breakdown['Gimli']
     assert_equal 3, @reunion.breakdown['Gandalf']
   end
+
+  def test_print_debts
+    @reunion.add_activity(@act_one)
+    @reunion.add_activity(@act_two)
+    @reunion.add_activity(@act_three)
+
+    assert_instance_of String, @reunion.print_debts
+    refute @reunion.print_debts.include?('{')
+  end
 end

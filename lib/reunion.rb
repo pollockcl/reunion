@@ -17,6 +17,13 @@ class Reunion
     extract_and_merge
   end
 
+  def print_debts
+    formatted = ''
+    breakdown.sort.each { |person| formatted << person.to_s + "\n" }
+    formatted.gsub!(':', ' owes')
+    formatted.delete('{}')
+  end
+
   private
 
   def activity_debts
