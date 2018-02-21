@@ -14,7 +14,7 @@ class ReunionTest < Minitest::Test
     participants_three = { 'Aragorn' => 21,
                            'Legolas' => 20,
                            'Gimli'   => 19 }
-    @act_one = Activity.new('Taking the hobbits to Isengargd', participants_one)
+    @act_one = Activity.new('Taking the hobbits to Isengard', participants_one)
     @act_two = Activity.new('Flying like fools', participants_two)
     @act_three = Activity.new('Tracking', participants_three)
   end
