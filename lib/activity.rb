@@ -20,6 +20,6 @@ class Activity
 
   def debts(name)
     return 'who?' if @participants[name].nil?
-    @participants[name] - split_cost
+    split_cost - @participants[name]
   end
 end
