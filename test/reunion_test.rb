@@ -44,7 +44,7 @@ class ReunionTest < Minitest::Test
     @reunion.add_activity(@act_three)
 
     assert_equal 0, @reunion.breakdown['Gimli']
-    assert_equal -3, @reunion.breakdown['Gandalf']
+    assert_equal(-3, @reunion.breakdown['Gandalf'])
   end
 
   def test_print_debts

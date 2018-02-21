@@ -6,7 +6,7 @@ require './lib/activity'
 class ActivityTest < Minitest::Test
   def setup
     participants = { 'Legolas' => 2,
-                      'Gimli'   => 4 }
+                     'Gimli'   => 4 }
     @act = Activity.new('Taking the hobbits to Isengargd', participants)
   end
 
@@ -30,7 +30,7 @@ class ActivityTest < Minitest::Test
 
   def test_debts
     assert_equal 1, @act.debts('Legolas')
-    assert_equal -1, @act.debts('Gimli')
+    assert_equal(-1, @act.debts('Gimli'))
     assert_equal 'who?', @act.debts('Ned')
   end
 end
