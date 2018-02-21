@@ -4,27 +4,33 @@ require 'minitest/pride'
 require './lib/activity'
 
 class ActivityTest < Minitest::Test
-  def test_existence
-    participants = { 'Legolas' => 2 }
-    act = Activity.new('Taking the hobbits to Isengargd', participants)
+  def setup
+    participants = { 'Legolas' => 2,
+                      'Gimli'   => 4 }
+    @act = Activity.new('Taking the hobbits to Isengargd', participants)
+  end
 
-    assert_instance_of Activity, act
+  def test_existence
+    assert_instance_of Activity, @act
   end
 
   def test_add_participants
-    participants = { 'Legolas' => 2 }
-    act = Activity.new('Taking the hobbits to Isengargd', participants)
+    @act.add_participants('Gandalf', 3)
 
-    act.add_participants('Gimli', 3)
-
-    assert_equal 2, act.participants.size
+    assert_equal 3, @act.participants.size
   end
 
   def test_total_cost
-    participants = { 'Legolas' => 2,
-                     'Gimli'   => 1 }
-    act = Activity.new('Taking the hobbits to Isengargd', participants)
+    assert_equal 6, @act.total_cost
+  end
 
-    assert_equal 3, act.total_cost
+  def test_split_cost
+    assert_equal 3, @act.split_cost
+  end
+
+  def test_debts
+    assert_equal -1, @act.debts('Legolas')
+    assert_equal 1, @act.debts('Gimli')
+    assert_equal 'who?', @act.debts('Ned')
   end
 end

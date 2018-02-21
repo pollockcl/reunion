@@ -13,4 +13,13 @@ class Activity
   def total_cost
     @participants.values.sum
   end
+
+  def split_cost
+    total_cost / @participants.size
+  end
+
+  def debts(name)
+    return 'who?' if @participants[name].nil?
+    @participants[name] - split_cost
+  end
 end
