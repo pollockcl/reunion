@@ -1,3 +1,4 @@
+# This is the Reunion class
 class Reunion
   attr_reader :activities
   def initialize(location)
